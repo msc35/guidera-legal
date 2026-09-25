@@ -122,11 +122,11 @@
 
     <div class="header">
         <h1>Privacy Policy — <span class="app-name">Guidera</span></h1>
-        <p class="effective-date">Effective date: April 10, 2026 · Last updated: April 10, 2026</p>
+        <p class="effective-date">Effective date: April 10, 2026 · Last updated: September 25, 2026</p>
     </div>
 
     <div class="callout">
-        <strong>Summary:</strong> Guidera does not have user accounts, does not operate a backend server, and does not store your personal data on any server we control. All app data stays on your device. The only data that leaves your device is what's necessary to generate AI descriptions, produce audio, serve ads, and collect anonymous analytics — sent directly to the third-party providers listed below.
+        <strong>Summary:</strong> Guidera does not have user accounts, does not operate a backend server, and does not store your personal data on any server we control. All app data stays on your device. The only data that leaves your device is what's necessary to generate AI descriptions (including looking up public information about the place you selected), produce audio, serve ads, and collect anonymous analytics — sent directly to the third-party providers listed below.
     </div>
 
     <h2>1. Who We Are</h2>
@@ -144,6 +144,7 @@
 
     <h3>2.2 User Queries and Content</h3>
     <p>When you generate an AI description, ask a follow-up question, or create a custom tour, the text of your request — along with place names and contextual information — is sent to third-party AI providers (Google Gemini API, OpenAI API) for processing. These providers process your request and return a response; we do not store your queries on any server we control. Generated descriptions are cached locally on your device for offline access.</p>
+    <p>To make descriptions accurate, the app looks up public information about the place you selected — its name and map coordinates — in public knowledge sources (see section 4.6). It sends the coordinates of the <em>place</em>, never your own GPS position. Whether you are standing at the place or browsing the map is determined on your device. The facts found (short statements with links to their sources) are cached on your device; the full text of the pages read is not stored.</p>
 
     <h3>2.3 Advertising Data</h3>
     <p>For free-tier users, we display advertisements through Google AdMob. The Google Mobile Ads SDK integrated in the app may collect device identifiers (including the Identifier for Advertisers, or IDFA, if you grant permission), IP address, and ad interaction data. This data is collected and processed by Google, not by us. Premium users see no advertisements and no advertising data is collected.</p>
@@ -196,6 +197,9 @@
 
     <h3>4.5 Apple Frameworks</h3>
     <p>We use Apple MapKit (maps and directions), StoreKit (in-app purchases), CoreLocation (GPS), ActivityKit (Live Activity), and WatchConnectivity (Apple Watch). Data processed by these frameworks is governed by <a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
+
+    <h3>4.6 Public Knowledge Sources</h3>
+    <p>To look up verified information about places, the app sends place names, place coordinates and article or item identifiers — no personal information, user identifiers or your own location — to: Wikimedia Foundation services (Wikipedia, Wikidata, Wikivoyage; <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy" target="_blank" rel="noopener">privacy policy</a>), the OpenStreetMap Overpass API (<a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">privacy policy</a>), and official public websites such as city portals, tourism boards, heritage registries and UNESCO, when they have a page about the place. The app also downloads public data files from GitHub Pages (<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy statement</a>). Like any website, these services receive your device's IP address with each request. Facts shown in the app from Wikipedia and Wikivoyage are used under CC BY-SA 4.0, Wikidata under CC0, and OpenStreetMap data under the ODbL; sources are listed under each description.</p>
 
     <h2>5. Data Transfers Outside the EU</h2>
     <p>When you use features that require AI processing, when ads are served, or when analytics data is collected, data may be transmitted to servers located in the United States operated by Google and OpenAI. These transfers are necessary to provide the app's core functionality and to improve the service. Both Google and OpenAI maintain data processing agreements and Standard Contractual Clauses (SCCs) to ensure an adequate level of data protection as required by the GDPR. No personal data is stored on these servers beyond the time needed to process and return your request.</p>
