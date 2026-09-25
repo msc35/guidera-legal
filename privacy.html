@@ -122,11 +122,11 @@
 
     <div class="header">
         <h1>Privacy Policy — <span class="app-name">Guidera</span></h1>
-        <p class="effective-date">Effective date: April 10, 2026 · Last updated: September 25, 2026</p>
+        <p class="effective-date">Effective date: April 10, 2026 · Last updated: September 26, 2026</p>
     </div>
 
     <div class="callout">
-        <strong>Summary:</strong> Guidera does not have user accounts, does not operate a backend server, and does not store your personal data on any server we control. All app data stays on your device. The only data that leaves your device is what's necessary to generate AI descriptions (including looking up public information about the place you selected), produce audio, serve ads, and collect anonymous analytics — sent directly to the third-party providers listed below.
+        <strong>Summary:</strong> Guidera does not have user accounts and does not store your personal data on any server. All personal app data stays on your device. To keep AI costs down, finished place descriptions and the public facts behind them are kept in a shared cache (see section 4.7) that contains no personal data. The only data that leaves your device is what's necessary to generate AI descriptions (including looking up public information about the place you selected), produce audio, serve ads, and collect anonymous analytics — sent directly to the third-party providers listed below.
     </div>
 
     <h2>1. Who We Are</h2>
@@ -144,7 +144,8 @@
 
     <h3>2.2 User Queries and Content</h3>
     <p>When you generate an AI description, ask a follow-up question, or create a custom tour, the text of your request — along with place names and contextual information — is sent to third-party AI providers (Google Gemini API, OpenAI API) for processing. These providers process your request and return a response; we do not store your queries on any server we control. Generated descriptions are cached locally on your device for offline access.</p>
-    <p>To make descriptions accurate, the app looks up public information about the place you selected — its name and map coordinates — in public knowledge sources (see section 4.6). It sends the coordinates of the <em>place</em>, never your own GPS position. Whether you are standing at the place or browsing the map is determined on your device. The facts found (short statements with links to their sources) are cached on your device; the full text of the pages read is not stored.</p>
+    <p>To make descriptions accurate, the app looks up public information about the place you selected — its name and map coordinates — in public knowledge sources (see section 4.6). It sends the coordinates of the <em>place</em>, never your own GPS position. The facts found (short statements with links to their sources) are cached on your device; the full text of the pages read is not stored.</p>
+    <p>Descriptions and the facts found about a place are also stored in Guidera's shared cache (see section 4.7), so the next person who opens the same place with the same settings gets them without a new AI request. The shared cache stores only information about the place and the app settings used (language, guide, tone and length). It never stores your location, your questions or anything that identifies you. Descriptions are written the same way for everyone and never refer to where you are.</p>
 
     <h3>2.3 Advertising Data</h3>
     <p>For free-tier users, we display advertisements through Google AdMob. The Google Mobile Ads SDK integrated in the app may collect device identifiers (including the Identifier for Advertisers, or IDFA, if you grant permission), IP address, and ad interaction data. This data is collected and processed by Google, not by us. Premium users see no advertisements and no advertising data is collected.</p>
@@ -178,6 +179,8 @@
         <tr><td>Analytics data</td><td>Understanding app usage, identifying bugs, improving the app</td><td>Legitimate interest (service improvement)</td></tr>
         <tr><td>Purchase status</td><td>Unlocking premium features</td><td>Contractual necessity</td></tr>
         <tr><td>Device preferences</td><td>Remembering your settings between sessions</td><td>Legitimate interest (app functionality)</td></tr>
+        <tr><td>Place descriptions and facts (no personal data)</td><td>Shared cache, so the same place isn't generated again for every user</td><td>Legitimate interest (keeping the free app affordable)</td></tr>
+        <tr><td>Shortened, one-way scrambled IP address (kept up to one day)</td><td>Limiting abuse of the shared cache</td><td>Legitimate interest (security)</td></tr>
     </table>
 
     <h2>4. Third-Party Services</h2>
@@ -201,8 +204,11 @@
     <h3>4.6 Public Knowledge Sources</h3>
     <p>To look up verified information about places, the app sends place names, place coordinates and article or item identifiers — no personal information, user identifiers or your own location — to: Wikimedia Foundation services (Wikipedia, Wikidata, Wikivoyage; <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy" target="_blank" rel="noopener">privacy policy</a>), the OpenStreetMap Overpass API (<a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">privacy policy</a>), and official public websites such as city portals, tourism boards, heritage registries and UNESCO, when they have a page about the place. The app also downloads public data files from GitHub Pages (<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy statement</a>). Like any website, these services receive your device's IP address with each request. Facts shown in the app from Wikipedia and Wikivoyage are used under CC BY-SA 4.0, Wikidata under CC0, and OpenStreetMap data under the ODbL; sources are listed under each description.</p>
 
+    <h3>4.7 Guidera Shared Cache (Cloudflare)</h3>
+    <p>The app reads and writes place descriptions and place facts through a small service we operate on Cloudflare Workers, with storage in Cloudflare D1. Requests contain an identifier of the place (an Apple Maps place identifier, a tour stop identifier, or the place's coordinates and type), the app settings used (language, guide, tone, length), and the description or facts themselves. No user identifiers, no location of yours and no chat questions are sent. Cloudflare receives your device's IP address to deliver each request. We do not keep request logs; to limit abuse, the service stores a shortened, one-way scrambled form of the IP address for up to one day. Stored descriptions and facts are deleted after one year. Cloudflare's privacy policy: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a></p>
+
     <h2>5. Data Transfers Outside the EU</h2>
-    <p>When you use features that require AI processing, when ads are served, or when analytics data is collected, data may be transmitted to servers located in the United States operated by Google and OpenAI. These transfers are necessary to provide the app's core functionality and to improve the service. Both Google and OpenAI maintain data processing agreements and Standard Contractual Clauses (SCCs) to ensure an adequate level of data protection as required by the GDPR. No personal data is stored on these servers beyond the time needed to process and return your request.</p>
+    <p>When you use features that require AI processing, when ads are served, or when analytics data is collected, data may be transmitted to servers located in the United States operated by Google, OpenAI and Cloudflare. These transfers are necessary to provide the app's core functionality and to improve the service. Google and OpenAI maintain data processing agreements and Standard Contractual Clauses (SCCs); Cloudflare is certified under the EU-U.S. Data Privacy Framework (including the UK Extension and the Swiss-U.S. framework) and uses SCCs as a fallback. These measures ensure an adequate level of data protection as required by the GDPR. No personal data is stored on these servers beyond the time needed to process and return your request.</p>
 
     <h2>6. App Tracking Transparency</h2>
     <p>On iOS 14.5 and later, we request your permission through Apple's App Tracking Transparency (ATT) framework before allowing Google AdMob to access your device's advertising identifier (IDFA) for personalized advertising. You may deny this request at any time, and you can change your preference in the iOS Settings app under Privacy &amp; Security → Tracking. Denying tracking does not affect app functionality — you will simply receive non-personalized ads.</p>
@@ -211,12 +217,12 @@
     <p>If you are located in the European Economic Area, the United Kingdom, or Switzerland, we will present a consent dialog before serving ads, in compliance with the Google EU User Consent Policy and the IAB Transparency and Consent Framework (TCF). You may choose to consent to or decline personalized advertising. You can change your consent preferences at any time through the app's Settings.</p>
 
     <h2>8. Data Retention and Deletion</h2>
-    <p>Since we do not operate a backend server, we do not retain any of your personal data. All data is stored locally on your device. You can delete all app data at any time by:</p>
+    <p>We do not retain your personal data. All personal data is stored locally on your device. The shared cache (section 4.7) holds only place descriptions and facts, without any link to you, and deletes them after one year; the scrambled IP addresses used against abuse are deleted after one day. You can delete all app data at any time by:</p>
     <p>Using the "Delete All My Data" option in the app's Settings, which clears all cached descriptions, audio files, tour progress, custom tours, and preferences; or by deleting the app from your device, which removes all associated data from your device's storage.</p>
     <p>Data processed by third-party services (Google, OpenAI) is subject to their respective retention policies. API requests are processed transiently and are not stored permanently by these providers. Anonymous analytics data collected by Firebase is retained according to Google's data retention policies and can be managed through the Firebase console.</p>
 
     <h2>9. Data Security</h2>
-    <p>We take reasonable measures to protect data processed by the app. API keys are stored in the iOS Keychain, which provides hardware-backed encryption. All network communications use HTTPS/TLS encryption. Locally stored data is protected by iOS's built-in data protection (file-level encryption tied to your device passcode). However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+    <p>We take reasonable measures to protect data processed by the app. API keys are stored in the iOS Keychain, which provides hardware-backed encryption. All network communications use HTTPS/TLS encryption. The shared cache only accepts content from the app, checks everything it receives, and never lets an existing entry be overwritten. Locally stored data is protected by iOS's built-in data protection (file-level encryption tied to your device passcode). However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
 
     <h2>10. Children's Privacy</h2>
     <p>Guidera is not directed at children under the age of 16. We do not knowingly collect personal information from children under 16. If you are a parent or guardian and believe your child has provided personal information through the app, please contact us at <a href="mailto:mehmetselim692@icloud.com">mehmetselim692@icloud.com</a> and we will take steps to remove such information. Note: because the app does not collect personal information or require accounts, there is no mechanism through which a child could provide us with personal data directly.</p>
